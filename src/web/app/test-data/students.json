@@ -92,5 +92,14 @@
         "teamName": "Team 1",
         "sectionName": "Tutorial Group 1",
         "courseId": "CS101"
+    },
+    "studentProfile" : {
+        "name": "John Doe",
+        "shortName": "JD",
+        "email": "jd@jd.com",
+        "institute": "Area51",
+        "nationality": "Antarctican",
+        "gender": "Gender.OTHER",
+        "moreInfo": ""
     }
 }

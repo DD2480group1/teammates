@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { of } from 'rxjs';
-import { Gender, StudentProfile } from '../../../types/api-output';
+import { Students, Gender, StudentProfile } from '../../../types/api-output';
 import { CommentsToCommentTableModelPipe } from '../../components/comment-box/comments-to-comment-table-model.pipe';
 import { LoadingRetryModule } from '../../components/loading-retry/loading-retry.module';
 import { LoadingSpinnerModule } from '../../components/loading-spinner/loading-spinner.module';
@@ -14,6 +14,7 @@ import {
   GrqRgqViewResponsesModule,
 } from '../../components/question-responses/grq-rgq-view-responses/grq-rgq-view-responses.module';
 import { InstructorStudentRecordsPageComponent } from './instructor-student-records-page.component';
+import {default as students} from '../../test-data/students.json'
 
 @Component({ selector: 'tm-student-profile', template: '' })
 class StudentProfileStubComponent {
@@ -76,15 +77,16 @@ describe('InstructorStudentRecordsPageComponent', () => {
   });
 
   it('should snap with populated fields', () => {
-    const studentProfile: StudentProfile = {
-      name: 'John Doe',
-      shortName: 'JD',
-      email: 'jd@jd.com',
-      institute: 'Area51',
-      nationality: 'Antarctican',
-      gender: Gender.OTHER,
-      moreInfo: '',
-    };
+    const studentProfile: Students = students.studentProfile;
+    // StudentProfile = {
+    //   name: 'John Doe',
+    //   shortName: 'JD',
+    //   email: 'jd@jd.com',
+    //   institute: 'Area51',
+    //   nationality: 'Antarctican',
+    //   gender: Gender.OTHER,
+    //   moreInfo: '',
+    // };
 
     component.studentName = 'Not John Doe';
     component.studentProfile = studentProfile;
@@ -97,15 +99,16 @@ describe('InstructorStudentRecordsPageComponent', () => {
   });
 
   it('should snap when student results are still loading', () => {
-    const studentProfile: StudentProfile = {
-      name: 'John Doe',
-      shortName: 'JD',
-      email: 'jd@jd.com',
-      institute: 'Area51',
-      nationality: 'Antarctican',
-      gender: Gender.OTHER,
-      moreInfo: '',
-    };
+    const studentProfile: Students = students.studentProfile;
+    // const studentProfile: StudentProfile = {
+    //   name: 'John Doe',
+    //   shortName: 'JD',
+    //   email: 'jd@jd.com',
+    //   institute: 'Area51',
+    //   nationality: 'Antarctican',
+    //   gender: Gender.OTHER,
+    //   moreInfo: '',
+    // };
     component.studentName = 'John Doe';
     component.studentProfile = studentProfile;
     component.courseId = 'CS1111';
